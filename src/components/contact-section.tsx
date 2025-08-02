@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'motion/react';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Link, Mail, MapPin, Send } from 'lucide-react';
 import React from 'react';
 
 const CONTACT_INFO = [
@@ -137,12 +137,12 @@ export function ContactSection() {
                   <div className="text-left">
                     <div className="text-gray-400 text-sm">{info.label}</div>
                     {info.link ? (
-                      <a
+                      <Link
                         href={info.link}
                         className="text-white font-medium hover:text-orange-400 transition-colors cursor-pointer"
                       >
                         {info.value}
-                      </a>
+                      </Link>
                     ) : (
                       <div className="text-white font-medium">{info.value}</div>
                     )}

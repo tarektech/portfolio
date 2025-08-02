@@ -48,11 +48,11 @@ export function ExperienceSection() {
               className="relative"
             >
               {/* Timeline Line */}
-              <div className="absolute left-2 top-12 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-500 opacity-30"></div>
+              <div className="sm:block hidden absolute left-2 top-12 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-500 opacity-30"></div>
 
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 ml-16 hover:bg-gray-800/70 transition-all duration-300 relative">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 ml-0 md:ml-16  hover:bg-gray-800/70 transition-all duration-300 relative">
                 {/* Timeline Dot */}
-                <div className="absolute -left-16 top-8 w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-4 border-gray-900"></div>
+                <div className="sm:block hidden absolute -left-16 top-8 w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-4 border-gray-900"></div>
 
                 {/* Icon */}
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 mb-4 text-white">

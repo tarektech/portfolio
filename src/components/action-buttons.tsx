@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ExternalLink, Mail } from 'lucide-react';
 import { Button } from './ui/button';  
+import Link from 'next/link';
 import React from 'react';
 
 export function ActionButtons() {
@@ -34,13 +35,13 @@ export function ActionButtons() {
         size="lg"
         className="border-gray-600 bg-orange-600 hover:bg-orange-700 text-white hover:text-white px-8 py-3 rounded-xl font-medium transition-all duration-200 cursor-pointer group"
       >
-        <a
+        <Link
           className="flex items-center gap-2 "
           href="mailto:tarekzein.dev@gmail.com"
         >
           <Mail className="w-4 h-4" />
           Contact
-        </a>
+        </Link>
       </Button>
     </motion.div>
   );

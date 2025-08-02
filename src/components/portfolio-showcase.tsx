@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
 
@@ -67,7 +67,7 @@ export function PortfolioShowcase() {
           className="w-full"
         >
           {/* Tab List */}
-          <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-2 mb-8 h-14">
+          <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-2 mb-8 min-h-[3.5rem] sm:h-14">
             {/* Animated background indicator */}
             <div
               className="absolute top-2 bottom-2 w-[calc(33.333%-0.166rem)] bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg shadow-lg transition-all duration-300 ease-out"
@@ -75,7 +75,7 @@ export function PortfolioShowcase() {
             />
 
             {/* Tab Buttons */}
-            <div className="relative z-10 grid grid-cols-3 h-full">
+            <div className="relative z-10 grid grid-cols-3 min-h-[2.5rem] sm:h-full">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -84,7 +84,7 @@ export function PortfolioShowcase() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`relative flex items-center justify-center gap-2 transition-all duration-300 rounded-lg font-medium group cursor-pointer ${
+                    className={`relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 transition-all duration-300 rounded-lg font-medium group cursor-pointer px-1 py-2 sm:py-0 ${
                       isActive ? 'text-white' : 'text-gray-400 hover:text-white'
                     }`}
                   >
@@ -107,7 +107,7 @@ export function PortfolioShowcase() {
                         stiffness: 300,
                         damping: 20,
                       }}
-                      className={`text-sm relative z-10 ${
+                      className={`text-xs sm:text-sm relative z-10 text-center ${
                         isActive ? 'font-semibold' : ''
                       }`}
                     >

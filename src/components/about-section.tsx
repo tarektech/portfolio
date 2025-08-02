@@ -5,7 +5,7 @@ import React from 'react';
 
 export function AboutSection() {
   function handleDownloadResume() {
-    const resumeUrl = '/assets/Tarek-Alzein.pdf';
+    const resumeUrl = '/resume/Tarek-Alzein.pdf';
     // Open PDF in new window for preview
 
     // Also trigger download
@@ -50,7 +50,7 @@ export function AboutSection() {
         >
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-white">
-              Hello, I&apos;m
+              Hello, I&apos;m{' '}
               <TextShimmerWave
                 className="text-2xl font-semibold [--base-color:#ff8904] [--base-gradient-color:#e7000b]"
                 duration={1.4}

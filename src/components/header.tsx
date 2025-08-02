@@ -36,7 +36,7 @@ export function Header() {
             transition={{ duration: 0.6 }}
             className="text-2xl font-bold text-white"
           >
-            <span className="text-orange-400">tarek</span> zein
+            <span className="text-orange-400">Tarek</span> Alzein
           </motion.div>
 
           {/* Desktop Navigation */}
