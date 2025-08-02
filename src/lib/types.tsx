@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 
 import {
   HtmlIcon,
@@ -12,7 +12,7 @@ import {
   DockerIcon,
   ExpressIcon,
   JwtIcon,
-  PostgreSQLIcon
+  PostgreSQLIcon,
 } from './techStackIcons';
 
 type Projects = {
@@ -34,10 +34,10 @@ export const PROJECTS: Projects[] = [
     description:
       'A Ecommerce website where you can buy and sell products built with Next.js and supabase',
     link: 'https://developersblog-psi.vercel.app/',
-    github: '#',
+    github: 'https://github.com/tarektech/shopease-ecommerce', 
     tags: ['Next.js', 'Supabase', 'Full Stack', 'Ecommerce'],
     status: 'Full Stack',
-    image: './projects/shop-clone-ecommerce.png',
+    image: '/projects/shop-clone-ecommerce.png',
   },
   {
     id: 2,
@@ -45,10 +45,10 @@ export const PROJECTS: Projects[] = [
     description:
       'A developer blog for sharing knowledge and experiences, built with Next.js and Supabase',
     link: 'https://ecommerce-supabase-nextjs.vercel.app/',
-    github: '#',
+    github: 'https://github.com/tarektech/devblog', 
     tags: ['Next.js', 'Supabase', 'Blog'],
     status: 'Full Stack',
-    image: './projects/DevBlog.png',
+    image: '/projects/DevBlog.png',
   },
   {
     id: 3,
@@ -56,42 +56,30 @@ export const PROJECTS: Projects[] = [
     description:
       'An online education platform for students to learn and grow built with Next.js and supabase',
     link: 'https://online-education-platform-kappa.vercel.app/',
-    github: '#',
+    github: 'https://github.com/tarektech/online-education-platform', // Replace with actual GitHub URL
     tags: ['React.js', 'Frontend', 'Education', 'Responsive'],
     status: 'Frontend Only',
-    image: './projects/education-online-platform.png',
-  },
-
-  {
-    id: 4,
-    title: 'signle page product',
-    description:
-      'A single page product page built with basics of html, css and javascript',
-    link: 'https://ecommerce-product-page.vercel.app/',
-    github: '#',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    status: 'Frontend Only',
-    image: './projects/single-product-page.png',
+    image: '/projects/education-online-platform.png',
   },
   {
-    id: 5,
+    id: 4,  
     title: 'abstract-landing-page',
     description: 'A landing page built with basics of html, css and javascript',
     link: 'https://tarektech.github.io/abstract-landing-page/',
-    github: '#',
+    github: 'https://github.com/tarektech/abstract-landing-page', 
     tags: ['HTML', 'CSS', 'JavaScript'],
     status: 'Frontend Only',
-    image: './projects/frontend-project-1.png',
+    image: '/projects/frontend-project-1.png',
   },
   {
-    id: 6,
+    id: 5,  
     title: 'insure-landing-page',
     description: 'A landing page built with basics of html, css and javascript',
     link: 'https://tarektech.github.io/insure-landing-page/',
-    github: '#',
+    github: 'https://github.com/tarektech/insure-landing-page', 
     tags: ['HTML', 'CSS', 'JavaScript'],
     status: 'Frontend Only',
-    image: './projects/frontend-project-2.png',
+    image: '/projects/frontend-project-2.png',
   },
 ];
 
@@ -232,7 +220,7 @@ export const TECH_STACK: TechStack[] = [
   },
   {
     name: 'React + Native',
-    icon: <ReactIcon />,  
+    icon: <ReactIcon />,
     color: 'from-cyan-500 to-orange-500',
     bgColor: 'bg-cyan-500/10',
   },

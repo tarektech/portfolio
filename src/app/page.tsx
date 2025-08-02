@@ -6,7 +6,7 @@ import { ServicesSection } from '@/components/services-section';
 import { EducationSection } from '@/components/education-section';
 import { ExperienceSection } from '@/components/experience-section';
 import { PortfolioShowcase } from '@/components/portfolio-showcase';
-import { ContactSection } from '@/components/contact-section';
+// import { ContactSection } from '@/components/contact-section';
 
 export default function Home() {
   return (
@@ -41,7 +41,7 @@ export default function Home() {
         <PortfolioShowcase />
 
         {/* Contact Section */}
-        <ContactSection />
+        {/* <ContactSection /> */}
       </div>
     </div>
   );

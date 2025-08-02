@@ -3,6 +3,8 @@ import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { PROJECTS } from '../../lib/types';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 export function ProjectsSection() {
   return (
     <section id="projects" className="relative py-20 px-6">
@@ -25,31 +27,41 @@ export function ProjectsSection() {
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 transition-all duration-300  cursor-pointer h-full flex flex-col">
               {/* Project Image */}
               <div className="relative mb-4 overflow-hidden rounded-lg">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel={project.title}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={500}
+                    height={500}
+                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </Link>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Action buttons overlay */}
                 <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.github}
-                    className="p-1.5 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors cursor-pointer"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <FaGithub className="w-3 h-3" />
-                  </a>
-                  <a
+                  {project.github !== '#' && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors"
+                    >
+                      <FaGithub className="w-3 h-3" />
+                    </Link>
+                  )}
+                  <Link
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors cursor-pointer"
-                    // onClick={(e) => e.stopPropagation()}
+                    className="p-2 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors "
                   >
                     <FaExternalLinkAlt className="w-3 h-3" />
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -71,31 +83,32 @@ export function ProjectsSection() {
               </div>
 
               {/* CTA */}
-              <div className="flex items-center justify-between pt-2 border-t border-gray-700/50">
-                <a
+              <div className="flex items-center justify-between pt-2 border-t border-gray-700/50 ">
+                <Link
                   href={project.link}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-orange-400 hover:text-red-300 font-medium transition-colors cursor-pointer text-sm  "
-                  // onClick={(e) => e.stopPropagation()}
+                  rel={project.title}
+                  className="inline-flex items-center gap-1 text-orange-400 hover:text-red-300 font-medium transition-colors cursor-pointer text-sm"
                 >
                   Live Demo
                   <FaExternalLinkAlt className="w-3 h-3" />
-                </a>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                </Link>
+                <Link
+                  href={
+                    project.github !== '#'
+                      ? project.github
+                      : `/projects/${project.id}`
+                  }
+                  target={project.github !== '#' ? '_blank' : undefined}
+                  rel={
+                    project.github !== '#' ? 'noopener noreferrer' : undefined
+                  }
                   className="inline-flex items-center gap-1 text-orange-400 hover:text-orange-300 font-medium transition-colors cursor-pointer text-sm"
-                  onClick={(e) => e.stopPropagation()}
                 >
                   Details
                   <FaArrowRight className="w-3 h-3" />
-                </a>
+                </Link>
               </div>
-
-              {/* Hover Effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </motion.div>
         ))}

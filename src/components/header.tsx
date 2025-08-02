@@ -12,7 +12,7 @@ const NAVIGATION_ITEMS = [
   { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
   { label: 'Portfolio', href: '#portfolio-showcase' },
-  { label: 'Contact', href: '#contact' },
+  // { label: 'Contact', href: '#contact' },
 ] as const;
 
 export function Header() {
