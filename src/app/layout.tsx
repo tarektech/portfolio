@@ -17,11 +17,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Tarek Zein | Full Stack Web Developer',
+  title: 'Tarek AlZein | Full Stack Web Developer',
   description:
-    'Personal portfolio of Tarek Zein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices. Based in Istanbul, Turkey.',
+    'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices. Based in Istanbul, Turkey.',
   keywords: [
-    'Tarek Zein',
+    'Tarek AlZein',
     'Full Stack Developer',
     'React Developer',
     'Next.js Developer',
@@ -32,23 +32,48 @@ export const metadata: Metadata = {
     'JavaScript',
     'TypeScript',
     'MERN Stack',
+    'Python Developer',
+    'Frontend Developer',
+    'Backend Developer',
+    'Software Engineer',
+    'Portfolio',
+    'Web Development',
   ],
-  authors: [{ name: 'Tarek Zein' }],
-  creator: 'Tarek Zein',
+  authors: [{ name: 'Tarek AlZein' }],
+  creator: 'Tarek AlZein',
+  publisher: 'Tarek AlZein',
+  formatDetection: {
+    telephone: false,
+  },
+  metadataBase: new URL('https://tarekdev.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Tarek Zein | Full Stack Web Developer',
+    title: 'Tarek AlZein | Full Stack Web Developer',
     description:
-      'Personal portfolio of Tarek Zein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
+      'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
     url: 'https://tarekdev.com',
-    siteName: 'Tarek Zein Portfolio',
+    siteName: 'Tarek AlZein Portfolio',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/my-avatar.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tarek AlZein - Web Developer Portfolio',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tarek Zein | Full Stack Web Developer',
+    title: 'Tarek AlZein | Full Stack Web Developer',
     description:
-      'Personal portfolio of Tarek Zein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
+      'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
+    images: ['/my-avatar.png'],
+    creator: '@tarektech',
   },
   robots: {
     index: true,
@@ -56,10 +81,27 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
+  icons: {
+    icon: [
+      { url: '/my-avatar.png' },
+      { url: '/my-avatar.png', sizes: '16x16', type: 'image/png' },
+      { url: '/my-avatar.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/my-avatar.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/manifest.json',
+  category: 'technology',
+  classification: 'Portfolio',
+  other: {
+    language: 'English',
+    'revisit-after': '7 days',
+    distribution: 'global',
+    rating: 'general',
   },
 };
 
@@ -72,6 +114,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://tarekdev.com" />
+
         {/* Performance Hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -101,6 +144,79 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
+
+        {/* Structured Data - JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Tarek AlZein',
+              jobTitle: 'Full Stack Web Developer',
+              description:
+                'Passionate and detail-oriented self-taught web developer with a strong foundation in creating high-quality, user-friendly websites and applications.',
+              url: 'https://tarekdev.com',
+              image: 'https://tarekdev.com/my-avatar.png',
+              email: 'tarekzein.dev@gmail.com',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Istanbul',
+                addressCountry: 'Turkey',
+              },
+              knowsAbout: [
+                'Web Development',
+                'React.js',
+                'Node.js',
+                'Python',
+                'JavaScript',
+                'TypeScript',
+                'HTML',
+                'CSS',
+                'MongoDB',
+                'Express.js',
+                'Next.js',
+                'React Native',
+                'Full Stack Development',
+                'Frontend Development',
+                'Backend Development',
+                'UI/UX Design',
+                'Figma',
+              ],
+              alumniOf: {
+                '@type': 'CollegeOrUniversity',
+                name: 'Istanbul Aydin University',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Istanbul',
+                  addressCountry: 'Turkey',
+                },
+              },
+              sameAs: [
+                'https://github.com/tarektech',
+                'https://www.linkedin.com/in/tarektech/',
+              ],
+              hasCredential: [
+                {
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'Meta Front-End Developer Professional Certificate',
+                  url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/F8XK925ZATZF',
+                  credentialCategory: 'certificate',
+                },
+                {
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'React Native - The Practical Guide',
+                  credentialCategory: 'certificate',
+                },
+                {
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'MERN Fullstack Development',
+                  credentialCategory: 'certificate',
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
@@ -110,7 +226,6 @@ export default function RootLayout({
         {process.env.NODE_ENV === 'development' && (
           <StagewiseToolbar config={{ plugins: [ReactPlugin] }} />
         )}
-
         <Analytics />
         <SpeedInsights />
       </body>

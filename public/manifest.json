@@ -1,0 +1,49 @@
+{
+  "name": "Tarek Zein Portfolio",
+  "short_name": "Tarek Portfolio",
+  "description": "Personal portfolio of Tarek Zein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["technology", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/my-avatar.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/my-avatar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/my-avatar.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/my-avatar.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tarek Zein Portfolio - Desktop View"
+    },
+    {
+      "src": "/my-avatar.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Tarek Zein Portfolio - Mobile View"
+    }
+  ]
+}
