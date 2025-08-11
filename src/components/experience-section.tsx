@@ -48,41 +48,41 @@ export function ExperienceSection() {
               className="relative"
             >
               {/* Timeline Line */}
-              <div className="sm:block hidden absolute left-2 top-12 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-500 opacity-30"></div>
+              <div className="sm:block hidden absolute left-2 top-10 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-500 opacity-30"></div>
 
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 ml-0 md:ml-16  hover:bg-gray-800/70 transition-all duration-300 relative">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 ml-0 md:ml-12 hover:bg-gray-800/70 transition-all duration-300 relative">
                 {/* Timeline Dot */}
-                <div className="sm:block hidden absolute -left-16 top-8 w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-4 border-gray-900"></div>
+                <div className="sm:block hidden absolute -left-12 top-6 w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-2 border-gray-900"></div>
 
                 {/* Icon */}
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 mb-4 text-white">
-                  <Briefcase className="w-6 h-6" />
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 mb-3 text-white">
+                  <Briefcase className="w-5 h-5" />
                 </div>
 
                 {/* Content */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-lg font-bold text-white">
                       {exp.title}
                     </h3>
-                    <h4 className="text-lg text-orange-400 font-semibold">
+                    <h4 className="text-base text-orange-400 font-semibold">
                       {exp.company}
                     </h4>
                   </div>
 
                   {/* Details */}
-                  <div className="flex flex-wrap gap-6 text-gray-400 text-sm">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
+                  <div className="flex flex-wrap gap-4 text-gray-400 text-sm">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
                       <span>{exp.period}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-sm">
                     {exp.description}
                   </p>
 
@@ -91,9 +91,9 @@ export function ExperienceSection() {
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="inline-flex items-center gap-1 px-3 py-1 bg-gray-700/50 border border-gray-600 rounded-lg text-gray-300 text-xs font-medium"
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700/50 border border-gray-600 rounded-md text-gray-300 text-xs font-medium"
                       >
-                        <ChevronRight className="w-3 h-3" />
+                        <ChevronRight className="w-2 h-2" />
                         {tech}
                       </span>
                     ))}

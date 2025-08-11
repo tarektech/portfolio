@@ -171,7 +171,7 @@ export function GSAPAboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-34 px-6 overflow-hidden"
+      className="relative py-20 px-6 overflow-hidden"
     >
       {/* Background gradient overlay */}
       <div

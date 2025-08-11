@@ -53,7 +53,7 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid  md:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.title}
@@ -63,24 +63,24 @@ export function ServicesSection() {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:bg-gray-800/70 transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 hover:bg-gray-800/70 transition-all duration-300 hover:scale-102 cursor-pointer h-full flex flex-col">
                 {/* Icon */}
                 <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r ${service.gradient} mb-6 text-white group-hover:scale-110 transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r ${service.gradient} mb-3 text-white group-hover:scale-110 transition-transform duration-300`}
                 >
                   {service.icon}
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300">
+                <h3 className="text-base font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed text-xs flex-grow">
                   {service.description}
                 </p>
 
                 {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </motion.div>
           ))}

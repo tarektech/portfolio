@@ -1,9 +1,15 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { Menu, X } from 'lucide-react';
 import React, { useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 const NAVIGATION_ITEMS = [
   { label: 'Home', href: '#home' },
@@ -20,9 +26,35 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+    const targetSelector = href.startsWith('#') ? href : `#${href}`;
+    const element = document.querySelector(
+      targetSelector
+    ) as HTMLElement | null;
+    if (!element) return;
+
+    const headerEl = document.querySelector('header');
+    const headerHeight =
+      headerEl instanceof HTMLElement ? headerEl.offsetHeight : 0;
+
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    const targetY = Math.max(0, elementTop - headerHeight);
+
+    // Close mobile menu first to avoid any overlay interference
+    setIsMobileMenuOpen(false);
+
+    // Defer scrolling until after layout updates
+    requestAnimationFrame(() => {
+      if (typeof window !== 'undefined' && gsap) {
+        gsap.to(window, {
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTo: { y: targetY, autoKill: false },
+        });
+      } else {
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+      history.pushState(null, '', targetSelector);
+    });
   };
 
   return (
