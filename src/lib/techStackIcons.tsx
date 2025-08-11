@@ -7,6 +7,7 @@ export const HtmlIcon = () => (
     className="w-14 h-14 "
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const CssIcon = () => (
@@ -16,6 +17,7 @@ export const CssIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const JsIcon = () => (
@@ -25,6 +27,7 @@ export const JsIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const TailwindIcon = () => (
@@ -34,6 +37,7 @@ export const TailwindIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const NodeIcon = () => (
@@ -43,6 +47,7 @@ export const NodeIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const MongoIcon = () => (
@@ -52,6 +57,7 @@ export const MongoIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 
@@ -62,6 +68,7 @@ export const ReactIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 export const TypescriptIcon = () => (
@@ -71,6 +78,7 @@ export const TypescriptIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 
@@ -81,6 +89,7 @@ export const DockerIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 
@@ -91,6 +100,7 @@ export const PostgreSQLIcon = () => (
     className="w-14 h-14"
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 
@@ -101,6 +111,7 @@ export const ExpressIcon = () => (
     className="w-14 h-14 "
     width={56}
     height={56}
+    loading="lazy"
   />
 );
 
@@ -111,5 +122,6 @@ export const JwtIcon = () => (
     className="w-14 h-14 "
     width={56}
     height={56}
+    loading="lazy"
   />
 );

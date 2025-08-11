@@ -52,7 +52,7 @@ export function AboutSection() {
             <h3 className="text-2xl font-semibold text-white">
               Hello, I&apos;m{' '}
               <TextShimmerWave
-                className="text-2xl font-semibold [--base-color:#ff8904] [--base-gradient-color:#e7000b]"
+                className="text-2xl font-semibold "
                 duration={1.4}
               >
                 Tarek Alzein

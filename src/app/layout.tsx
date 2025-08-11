@@ -3,8 +3,6 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { StagewiseToolbar } from '@stagewise/toolbar-next';
-import ReactPlugin from '@stagewise-plugins/react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -222,10 +220,6 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
-
-        {process.env.NODE_ENV === 'development' && (
-          <StagewiseToolbar config={{ plugins: [ReactPlugin] }} />
-        )}
         <Analytics />
         <SpeedInsights />
       </body>

@@ -37,6 +37,7 @@ export function ProjectsSection() {
                     alt={project.title}
                     width={500}
                     height={500}
+                    loading="lazy"
                     className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </Link>
