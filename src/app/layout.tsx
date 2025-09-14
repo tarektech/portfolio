@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  metadataBase: new URL('https://tarekdev.com'),
+  metadataBase: new URL('https://tarekzein.com'),
   alternates: {
     canonical: '/',
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: 'Tarek AlZein | Full Stack Web Developer',
     description:
       'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
-    url: 'https://tarekdev.com',
+    url: 'https://tarekzein.com',
     siteName: 'Tarek AlZein Portfolio',
     type: 'website',
     locale: 'en_US',
@@ -111,7 +111,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://tarekdev.com" />
+        <link rel="canonical" href="https://tarekzein.com" />
 
         {/* Performance Hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -154,8 +154,8 @@ export default function RootLayout({
               jobTitle: 'Full Stack Web Developer',
               description:
                 'Passionate and detail-oriented self-taught web developer with a strong foundation in creating high-quality, user-friendly websites and applications.',
-              url: 'https://tarekdev.com',
-              image: 'https://tarekdev.com/my-avatar.png',
+              url: 'https://tarekzein.com',
+              image: 'https://tarekzein.com/my-avatar.png',
               email: 'tarekzein.dev@gmail.com',
               address: {
                 '@type': 'PostalAddress',

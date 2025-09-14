@@ -136,7 +136,7 @@ Feel free to fork this project and customize it for your own portfolio!
 
 - **Email**: tarek@example.com
 - **Location**: Istanbul, Turkey
-- **Website**: [tarekdev.com](https://tarekdev.com)
+- **Website**: [tarekzein.com](https://tarekzein.com)
 
 ---
 
