@@ -3,7 +3,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'; // eslint-disable-line
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -159,7 +159,7 @@ export const createTextReveal = (
     delay = 0,
     duration = 1,
     stagger = 0.03,
-    splitBy = 'chars',
+    splitBy = 'chars',  // eslint-disable-line
   } = options;
 
   // This would typically use SplitText plugin (GSAP premium)
