@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/my-avatar.png',
+        url: '/favicon.ico',
         width: 1200,
         height: 630,
         alt: 'Tarek AlZein - Web Developer Portfolio',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: 'Tarek AlZein | Full Stack Web Developer',
     description:
       'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
-    images: ['/my-avatar.png'],
+    images: ['/favicon.ico'],
     creator: '@tarektech',
   },
   robots: {
@@ -86,11 +86,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/my-avatar.png' },
-      { url: '/my-avatar.png', sizes: '16x16', type: 'image/png' },
-      { url: '/my-avatar.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/png' },
     ],
-    apple: [{ url: '/my-avatar.png', sizes: '180x180', type: 'image/png' }],
+    apple: [{ url: '/favicon.ico', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/manifest.json',
   category: 'technology',
@@ -142,7 +142,10 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
-
+      </head>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
         {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"
@@ -155,7 +158,7 @@ export default function RootLayout({
               description:
                 'Passionate and detail-oriented self-taught web developer with a strong foundation in creating high-quality, user-friendly websites and applications.',
               url: 'https://tarekzein.com',
-              image: 'https://tarekzein.com/my-avatar.png',
+              image: 'https://tarekzein.com/favicon.ico',
               email: 'tarekzein.dev@gmail.com',
               address: {
                 '@type': 'PostalAddress',
@@ -215,10 +218,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
         {children}
         <Analytics />
         <SpeedInsights />

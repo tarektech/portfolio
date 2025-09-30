@@ -19,7 +19,7 @@ const EDUCATION: Education[] = [
     icon: <GraduationCap className="w-8 h-8" />,
     title: 'Associate Degree in Computer Programming',
     institution: 'Istanbul Aydın University',
-    date: '2024 – 2025',
+    date: '2023 – 2025',
     location: 'Istanbul, Turkey',
     description:
       'Graduated from Istanbul Aydın University with an Associate Degree in Computer Programming.',

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Github, Linkedin, MapPin } from 'lucide-react';  
+import { Github, Linkedin, MapPin , Send  } from 'lucide-react';  
 import React from 'react';
 
 const SOCIAL_LINKS = [
@@ -19,7 +19,13 @@ const SOCIAL_LINKS = [
     icon: <MapPin className="w-6 h-6" />,
     label:'Location',
     username:'Istanbul, Turkey',
-  }
+  },
+  {
+    icon: <Send className="w-6 h-6" />,
+    label: 'Telegram',
+    link: 'https://t.me/tarek_alzein',
+    username: '@tarek_alzein',
+  },
 ];
 
 export function SocialLinks() {

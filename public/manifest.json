@@ -12,19 +12,19 @@
   "categories": ["technology", "business", "productivity"],
   "icons": [
     {
-      "src": "/my-avatar.png",
+      "src": "/favicon.ico",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/my-avatar.png",
+      "src": "/favicon.ico",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/my-avatar.png",
+      "src": "/favicon.ico",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
@@ -32,14 +32,14 @@
   ],
   "screenshots": [
     {
-      "src": "/my-avatar.png",
+      "src": "/favicon.ico",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Tarek Zein Portfolio - Desktop View"
     },
     {
-      "src": "/my-avatar.png",
+      "src": "/favicon.ico",
       "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",

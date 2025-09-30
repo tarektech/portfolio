@@ -1,19 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
-export const HtmlIcon = () => (
+export const NextJsIcon = () => (
   <Image
-    src="/techstack/html5.svg"
-    alt="HTML"
+    src="/techstack/nextjs.svg"
+    alt="Next.js"
     className="w-14 h-14 "
     width={56}
     height={56}
     loading="lazy"
   />
 );
-export const CssIcon = () => (
+export const SupabaseIcon = () => (
   <Image
-    src="/techstack/css3.svg"
-    alt="CSS"
+    src="/techstack/supabase.svg"
+    alt="Supabase"
     className="w-14 h-14"
     width={56}
     height={56}

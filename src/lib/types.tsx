@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-  HtmlIcon,
-  CssIcon,
+  NextJsIcon,
+  SupabaseIcon,
   JsIcon,
   TailwindIcon,
   NodeIcon,
@@ -183,14 +183,14 @@ type TechStack = {
 // Tech Stack data - updated to match the image design
 export const TECH_STACK: TechStack[] = [
   {
-    name: 'HTML',
-    icon: <HtmlIcon />,
+    name: 'Next.js',
+    icon: <NextJsIcon />,
     color: 'from-orange-500 to-red-500',
     bgColor: 'bg-orange-500/10',
   },
   {
-    name: 'CSS',
-    icon: <CssIcon />,
+    name: 'Supabase',
+    icon: <SupabaseIcon />,
     color: 'from-orange-500 to-cyan-500',
     bgColor: 'bg-orange-500/10',
   },

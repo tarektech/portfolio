@@ -103,7 +103,7 @@ The website is built with modular, reusable components:
 - `EducationSection`: Academic background
 - `ExperienceSection`: Work experience
 - `CertificationsSection`: Certifications grid
-- `SkillsSection`: Technical skills
+- `TechStackSection`: Technical skills
 - `ProjectsSection`: Portfolio projects
 - `ContactSection`: Contact form and info
 - `Footer`: Footer with social links
