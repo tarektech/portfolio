@@ -2,15 +2,28 @@ import { NextRequest, NextResponse } from 'next/server'
 import formData from 'form-data'
 import Mailgun from 'mailgun.js'
 
-// Initialize Mailgun client
-const mailgun = new Mailgun(formData)
-const mg = mailgun.client({
-  username: 'api',
-  key: process.env.MAILGUN_API_KEY || '',
-})
-
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables first
+    const apiKey = process.env.MAILGUN_API_KEY
+    const domain = process.env.MAILGUN_DOMAIN
+    const toEmail = process.env.MAILGUN_TO_EMAIL
+
+    if (!apiKey || !domain || !toEmail) {
+      console.error('Missing Mailgun configuration:', {
+        hasApiKey: !!apiKey,
+        hasDomain: !!domain,
+        hasToEmail: !!toEmail,
+      })
+      return NextResponse.json(
+        {
+          error: 'Email service not configured',
+          details: 'Missing required environment variables',
+        },
+        { status: 500 },
+      )
+    }
+
     const body = await request.json()
     const { id, name, email, subject, message } = body
 
@@ -22,10 +35,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Initialize Mailgun client with validated credentials
+    const mailgun = new Mailgun(formData)
+    const mg = mailgun.client({
+      username: 'api',
+      key: apiKey,
+    })
+
     // Send email using Mailgun
-    const result = await mg.messages.create(process.env.MAILGUN_DOMAIN || '', {
+    const result = await mg.messages.create(domain, {
       from: `${name} <${email}>`,
-      to: process.env.MAILGUN_TO_EMAIL,
+      to: toEmail,
       subject: `Portfolio Contact: ${subject}`,
       text: message,
       html: `
