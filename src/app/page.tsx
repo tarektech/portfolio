@@ -7,8 +7,7 @@ import { EducationSection } from '@/components/education-section';
 import { ExperienceSection } from '@/components/experience-section';
 import { PortfolioShowcase } from '@/components/portfolio-showcase';
 import { GSAPPageWrapper } from '@/components/gsap-animation/gsap-page-wrapper';
-// import { AboutSection } from '@/components/about-section';
-// import { ContactSection } from '@/components/contact-section';
+import { ContactSection } from '@/components/contact-section';
 
 export default function Home() {
   return (
@@ -42,10 +41,11 @@ export default function Home() {
           <ExperienceSection />
 
           {/* Portfolio Showcase Section */}
-          <PortfolioShowcase />
+          <PortfolioShowcase /> 
 
           {/* Contact Section */}
-          {/* <ContactSection /> */}
+          <ContactSection />
+
         </div>
       </div>
     </GSAPPageWrapper>

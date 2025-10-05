@@ -1,0 +1,62 @@
+import { NextRequest, NextResponse } from 'next/server'
+import formData from 'form-data'
+import Mailgun from 'mailgun.js'
+
+// Initialize Mailgun client
+const mailgun = new Mailgun(formData)
+const mg = mailgun.client({
+  username: 'api',
+  key: process.env.MAILGUN_API_KEY || '',
+})
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json()
+    const { id, name, email, subject, message } = body
+
+    // Validate required fields
+    if (!id || !name || !email || !subject || !message) {
+      return NextResponse.json(
+        { error: 'All fields are required' },
+        { status: 400 },
+      )
+    }
+
+    // Send email using Mailgun
+    const result = await mg.messages.create(process.env.MAILGUN_DOMAIN || '', {
+      from: `${name} <${email}>`,
+      to: process.env.MAILGUN_TO_EMAIL,
+      subject: `Portfolio Contact: ${subject}`,
+      text: message,
+      html: `
+					<div style="font-family: Arial, sans-serif; padding: 20px;">
+						<h2 style="color: #f97316;">New Contact Form Submission</h2>
+						<div style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
+							<p style="margin: 10px 0;"><strong>ID:</strong> ${id}</p>
+							<p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
+							<p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
+							<p style="margin: 10px 0;"><strong>Subject:</strong> ${subject}</p>
+						</div>
+						<div style="background-color: #fff; padding: 15px; border-left: 4px solid #f97316; margin: 20px 0;">
+							<h3 style="margin-top: 0;">Message:</h3>
+							<p style="line-height: 1.6; white-space: pre-wrap;">${message}</p>
+						</div>
+					</div>
+				`,
+    })
+
+    return NextResponse.json(
+      { success: true, message: 'Email sent successfully', result },
+      { status: 200 },
+    )
+  } catch (error) {
+    console.error('Mailgun error:', error)
+    return NextResponse.json(
+      {
+        error: 'Failed to send email',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
+      { status: 500 },
+    )
+  }
+}

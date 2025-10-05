@@ -4,6 +4,7 @@ import { PROJECTS } from '../../lib/types';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Route } from 'next';
 
 export function ProjectsSection() {
   return (
@@ -28,7 +29,7 @@ export function ProjectsSection() {
               {/* Project Image */}
               <div className="relative mb-4 overflow-hidden rounded-lg">
                 <Link
-                  href={project.link}
+                  href={project.link as Route}
                   target="_blank"
                   rel={project.title}
                 >
@@ -47,7 +48,7 @@ export function ProjectsSection() {
                 <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.github !== '#' && (
                     <Link
-                      href={project.github}
+                      href={project.github as Route}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors"
@@ -56,7 +57,7 @@ export function ProjectsSection() {
                     </Link>
                   )}
                   <Link
-                    href={project.link}
+                    href={project.link as Route}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 bg-black/70 rounded-md text-white hover:bg-black/90 transition-colors "
@@ -86,7 +87,7 @@ export function ProjectsSection() {
               {/* CTA */}
               <div className="flex items-center justify-between pt-2 border-t border-gray-700/50 ">
                 <Link
-                  href={project.link}
+                  href={project.link as Route}
                   target="_blank"
                   rel={project.title}
                   className="inline-flex items-center gap-1 text-orange-400 hover:text-red-300 font-medium transition-colors cursor-pointer text-sm"
@@ -97,8 +98,8 @@ export function ProjectsSection() {
                 <Link
                   href={
                     project.github !== '#'
-                      ? project.github
-                      : `/projects/${project.id}`
+                      ? project.github as Route
+                      : `/projects/${project.id}` as Route
                   }
                   target={project.github !== '#' ? '_blank' : undefined}
                   rel={
