@@ -1,31 +1,28 @@
-'use client';
+'use client'
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TextShimmerWave } from '@/components/ui/text-shimmer-wave';
-import {
-  TiltEffect,
-  RevealAnimation,
-} from './gsap-advanced-effects';
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { TextShimmerWave } from '@/components/ui/text-shimmer-wave'
+import { TiltEffect, RevealAnimation } from './gsap-advanced-effects'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 export function GSAPAboutSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const buttonsRef = useRef<HTMLDivElement>(null)
+  const backgroundRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
-    const section = sectionRef.current;
+    const section = sectionRef.current
 
     // Create a timeline for the section
     const tl = gsap.timeline({
@@ -35,7 +32,7 @@ export function GSAPAboutSection() {
         end: 'bottom 20%',
         toggleActions: 'play none none reverse',
       },
-    });
+    })
 
     // Set initial states
     gsap.set(
@@ -48,17 +45,17 @@ export function GSAPAboutSection() {
       {
         opacity: 0,
         y: 50,
-      }
-    );
+      },
+    )
 
     // Animate background gradient
     if (backgroundRef.current) {
-      gsap.set(backgroundRef.current, { scaleX: 0, transformOrigin: 'left' });
+      gsap.set(backgroundRef.current, { scaleX: 0, transformOrigin: 'left' })
       tl.to(backgroundRef.current, {
         scaleX: 1,
         duration: 1.5,
         ease: 'power2.out',
-      });
+      })
     }
 
     // Animate header
@@ -70,8 +67,8 @@ export function GSAPAboutSection() {
         duration: 0.8,
         ease: 'power2.out',
       },
-      '-=1'
-    );
+      '-=1',
+    )
 
     // Animate content with character reveal
     tl.to(
@@ -82,12 +79,12 @@ export function GSAPAboutSection() {
         duration: 1,
         ease: 'power2.out',
       },
-      '-=0.5'
-    );
+      '-=0.5',
+    )
 
     // Animate stats with stagger
     if (statsRef.current) {
-      const statItems = statsRef.current.children;
+      const statItems = statsRef.current.children
       tl.to(
         statItems,
         {
@@ -98,8 +95,8 @@ export function GSAPAboutSection() {
           stagger: 0.15,
           ease: 'back.out(1.7)',
         },
-        '-=0.5'
-      );
+        '-=0.5',
+      )
     }
 
     // Animate buttons
@@ -111,12 +108,12 @@ export function GSAPAboutSection() {
         duration: 0.8,
         ease: 'power2.out',
       },
-      '-=0.4'
-    );
+      '-=0.4',
+    )
 
     // Add floating animation to stats
     if (statsRef.current) {
-      const statItems = Array.from(statsRef.current.children);
+      const statItems = Array.from(statsRef.current.children)
       statItems.forEach((item, index) => {
         gsap.to(item, {
           y: 'random(-10, 10)',
@@ -126,8 +123,8 @@ export function GSAPAboutSection() {
           yoyo: true,
           ease: 'sine.inOut',
           delay: index * 0.2,
-        });
-      });
+        })
+      })
     }
 
     // Parallax effect for background elements
@@ -140,32 +137,32 @@ export function GSAPAboutSection() {
         end: 'bottom top',
         scrub: 1,
       },
-    });
+    })
 
     return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+      tl.kill()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
 
   function handleDownloadResume() {
-    const resumeUrl = '/resume/Tarek-Alzein.pdf';
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'Tarek-Alzein.pdf';
-    link.click();
+    const resumeUrl = '/resume/Tarek-Alzein.pdf'
+    const link = document.createElement('a')
+    link.target = '_target'
+    link.href = resumeUrl
+    link.click()
   }
 
   const handleClick = () => {
-    const element = document.querySelector('#portfolio-showcase');
+    const element = document.querySelector('#portfolio-showcase')
     if (element) {
       gsap.to(window, {
         duration: 1.5,
         scrollTo: { y: element, offsetY: 100 },
         ease: 'power2.inOut',
-      });
+      })
     }
-  };
+  }
 
   return (
     <section
@@ -230,7 +227,6 @@ export function GSAPAboutSection() {
         </div>
 
         {/* Stats Section */}
-        
 
         {/* Action Buttons */}
         <div
@@ -267,5 +263,5 @@ export function GSAPAboutSection() {
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-red-500/10 rounded-full blur-2xl"></div>
       </div>
     </section>
-  );
+  )
 }

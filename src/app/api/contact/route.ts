@@ -25,10 +25,10 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { id, name, email, subject, message } = body
+    const { name, email, subject, message } = body
 
     // Validate required fields
-    if (!id || !name || !email || !subject || !message) {
+    if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'All fields are required' },
         { status: 400 },
@@ -52,7 +52,6 @@ export async function POST(request: NextRequest) {
 					<div style="font-family: Arial, sans-serif; padding: 20px;">
 						<h2 style="color: #f97316;">New Contact Form Submission</h2>
 						<div style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
-							<p style="margin: 10px 0;"><strong>ID:</strong> ${id}</p>
 							<p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
 							<p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
 							<p style="margin: 10px 0;"><strong>Subject:</strong> ${subject}</p>
