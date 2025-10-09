@@ -1,21 +1,22 @@
-import { motion } from 'motion/react';
-import { FaAward, FaCalendar, FaCheckCircle } from 'react-icons/fa';
-import { useState } from 'react';
-import React from 'react';
-import { CERTIFICATIONS, CATEGORY_COLORS } from '../../lib/certificationTypes';
-import { MorphingDialogBasicImage } from '../motionPrimitives/image-morphing';
-import ModelCertification from '../Model-certification';
+import { motion } from 'motion/react'
+import { FaAward, FaCalendar, FaCheckCircle } from 'react-icons/fa'
+import { useState } from 'react'
+import React from 'react'
+import { CERTIFICATIONS, CATEGORY_COLORS } from '../../lib/certificationTypes'
+import { MorphingDialogBasicImage } from '../motionPrimitives/image-morphing'
+import ModelCertification from '../Model-certification'
+import { Statistics } from '../statistics'
 
 export function CertificationsSection() {
   const [selectedCertificate, setSelectedCertificate] = useState<
     (typeof CERTIFICATIONS)[0] | null
-  >(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  >(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleCertificateClick = (cert: (typeof CERTIFICATIONS)[0]) => {
-    setSelectedCertificate(cert);
-    setIsModalOpen(true);
-  };
+    setSelectedCertificate(cert)
+    setIsModalOpen(true)
+  }
 
   return (
     <section id="certifications" className="relative py-20 px-6">
@@ -33,18 +34,7 @@ export function CertificationsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
         >
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">11+</div>
-            <div className="text-gray-400">Total Certifications</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">8</div>
-            <div className="text-gray-400">Categories</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">4</div>
-            <div className="text-gray-400">Years Learning</div>
-          </div>
+          <Statistics />
         </motion.div>
 
         {/* Certifications Grid */}
@@ -119,11 +109,11 @@ export function CertificationsSection() {
       <ModelCertification
         isOpen={isModalOpen}
         onClose={() => {
-          setIsModalOpen(false);
-          setSelectedCertificate(null);
+          setIsModalOpen(false)
+          setSelectedCertificate(null)
         }}
         certificate={selectedCertificate}
       />
     </section>
-  );
+  )
 }

@@ -1,11 +1,17 @@
 export type Certifications = {
-  title: string;
-  year: string;
-  category: string;
-  image?: string;
-};
+  title: string
+  year: string
+  category: string
+  image?: string
+}
 
 export const CERTIFICATIONS: Certifications[] = [
+  {
+    title: 'PostgreSQL for Everybody',
+    year: '2025',
+    category: 'Database',
+    image: '/certifications/PostgreSQL-for-Everybody.jpg',
+  },
   {
     title: 'Prompt Engineering for ChatGPT',
     year: '2025',
@@ -72,7 +78,7 @@ export const CERTIFICATIONS: Certifications[] = [
     category: 'Design',
     image: '/certifications/figma.png',
   },
-];
+]
 
 /////////////////////
 
@@ -85,4 +91,5 @@ export const CATEGORY_COLORS = {
   'Best Practices': 'from-yellow-500 to-orange-500',
   Programming: 'from-indigo-500 to-orange-500',
   Design: 'from-pink-500 to-orange-500',
-};
+  Database: 'from-red-500 to-orange-500',
+}
