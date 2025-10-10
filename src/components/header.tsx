@@ -27,30 +27,35 @@ export function Header() {
 
   const handleNavClick = (href: string) => {
     const targetSelector = href.startsWith('#') ? href : `#${href}`
-    const element = document.querySelector(targetSelector) as HTMLElement | null
-    if (!element) return
-
-    const headerEl = document.querySelector('header')
-    const headerHeight =
-      headerEl instanceof HTMLElement ? headerEl.offsetHeight : 0
-
-    const elementTop = element.getBoundingClientRect().top + window.scrollY
-    const targetY = Math.max(0, elementTop - headerHeight)
 
     // Close mobile menu first to avoid any overlay interference
     setIsMobileMenuOpen(false)
 
-    // Immediate scroll without delay
-    if (typeof window !== 'undefined' && gsap) {
-      gsap.to(window, {
-        duration: 0,
-        ease: 'power1.out',
-        scrollTo: { y: targetY, autoKill: false },
-      })
-    } else {
-      window.scrollTo({ top: targetY, behavior: 'smooth' })
-    }
-    history.pushState(null, '', targetSelector)
+    // Wait for menu to close before scrolling
+    setTimeout(() => {
+      const element = document.querySelector(
+        targetSelector,
+      ) as HTMLElement | null
+      if (!element) return
+
+      const headerEl = document.querySelector('header')
+      const headerHeight =
+        headerEl instanceof HTMLElement ? headerEl.offsetHeight : 0
+
+      const elementTop = element.getBoundingClientRect().top + window.scrollY
+      const targetY = Math.max(0, elementTop - headerHeight)
+
+      if (typeof window !== 'undefined' && gsap) {
+        gsap.to(window, {
+          duration: 0.3,
+          ease: 'power2.inOut',
+          scrollTo: { y: targetY, autoKill: false },
+        })
+      } else {
+        window.scrollTo({ top: targetY, behavior: 'smooth' })
+      }
+      history.pushState(null, '', targetSelector)
+    }, 350) // Match the menu exit animation duration
   }
 
   return (
