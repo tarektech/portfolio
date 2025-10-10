@@ -1,14 +1,14 @@
-'use client';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'motion/react';
-import { useActiveSection } from '../hooks/useActiveSection';
-import { Menu, X } from 'lucide-react';
-import React, { useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+'use client'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'motion/react'
+import { useActiveSection } from '../hooks/useActiveSection'
+import { Menu, X } from 'lucide-react'
+import React, { useState } from 'react'
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollToPlugin);
+  gsap.registerPlugin(ScrollToPlugin)
 }
 
 const NAVIGATION_ITEMS = [
@@ -18,44 +18,40 @@ const NAVIGATION_ITEMS = [
   { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
   { label: 'Portfolio', href: '#portfolio-showcase' },
-  // { label: 'Contact', href: '#contact' },
-] as const;
+  { label: 'Contact', href: '#contact' },
+] as const
 
 export function Header() {
-  const activeSection = useActiveSection();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const handleNavClick = (href: string) => {
-    const targetSelector = href.startsWith('#') ? href : `#${href}`;
-    const element = document.querySelector(
-      targetSelector
-    ) as HTMLElement | null;
-    if (!element) return;
+    const targetSelector = href.startsWith('#') ? href : `#${href}`
+    const element = document.querySelector(targetSelector) as HTMLElement | null
+    if (!element) return
 
-    const headerEl = document.querySelector('header');
+    const headerEl = document.querySelector('header')
     const headerHeight =
-      headerEl instanceof HTMLElement ? headerEl.offsetHeight : 0;
+      headerEl instanceof HTMLElement ? headerEl.offsetHeight : 0
 
-    const elementTop = element.getBoundingClientRect().top + window.scrollY;
-    const targetY = Math.max(0, elementTop - headerHeight);
+    const elementTop = element.getBoundingClientRect().top + window.scrollY
+    const targetY = Math.max(0, elementTop - headerHeight)
 
     // Close mobile menu first to avoid any overlay interference
-    setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen(false)
 
-    // Defer scrolling until after layout updates
-    requestAnimationFrame(() => {
-      if (typeof window !== 'undefined' && gsap) {
-        gsap.to(window, {
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTo: { y: targetY, autoKill: false },
-        });
-      } else {
-        window.scrollTo({ top: targetY, behavior: 'smooth' });
-      }
-      history.pushState(null, '', targetSelector);
-    });
-  };
+    // Immediate scroll without delay
+    if (typeof window !== 'undefined' && gsap) {
+      gsap.to(window, {
+        duration: 0,
+        ease: 'power1.out',
+        scrollTo: { y: targetY, autoKill: false },
+      })
+    } else {
+      window.scrollTo({ top: targetY, behavior: 'smooth' })
+    }
+    history.pushState(null, '', targetSelector)
+  }
 
   return (
     <header className="z-20 w-full fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm border-b border-gray-800/50">
@@ -74,7 +70,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
             {NAVIGATION_ITEMS.map((item, index) => {
-              const isActive = activeSection === item.href.substring(1);
+              const isActive = activeSection === item.href.substring(1)
 
               return (
                 <motion.div
@@ -87,8 +83,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href);
+                      e.preventDefault()
+                      handleNavClick(item.href)
                     }}
                     className={`text-[.70rem] font-medium transition-all duration-300 cursor-pointer relative py-2 px-3 rounded-lg ${
                       isActive
@@ -119,7 +115,7 @@ export function Header() {
                     )}
                   </Link>
                 </motion.div>
-              );
+              )
             })}
           </nav>
 
@@ -153,7 +149,7 @@ export function Header() {
             >
               <nav className="pt-4 pb-2 space-y-1">
                 {NAVIGATION_ITEMS.map((item, index) => {
-                  const isActive = activeSection === item.href.substring(1);
+                  const isActive = activeSection === item.href.substring(1)
 
                   return (
                     <motion.div
@@ -165,8 +161,8 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(item.href);
+                          e.preventDefault()
+                          handleNavClick(item.href)
                         }}
                         className={`block py-2 px-4 rounded-lg transition-all duration-300 cursor-pointer text-sm ${
                           isActive
@@ -177,7 +173,7 @@ export function Header() {
                         {item.label}
                       </Link>
                     </motion.div>
-                  );
+                  )
                 })}
               </nav>
             </motion.div>
@@ -185,5 +181,5 @@ export function Header() {
         </AnimatePresence>
       </div>
     </header>
-  );
+  )
 }

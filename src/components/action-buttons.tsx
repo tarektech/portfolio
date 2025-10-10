@@ -1,8 +1,9 @@
-import { motion } from 'motion/react';
-import { ExternalLink, Mail } from 'lucide-react';
-import { Button } from './ui/button';  
-import Link from 'next/link';
-import React from 'react';
+import { motion } from 'motion/react'
+import { ExternalLink, Mail } from 'lucide-react'
+import { Button } from './ui/button'
+import Link from 'next/link'
+import React from 'react'
+import { DownloadButton } from './ui/downloadButton'
 
 export function ActionButtons() {
   const handleClick = () => {
@@ -29,6 +30,8 @@ export function ActionButtons() {
         </span>
       </Button>
 
+      {/* testing download resume button */}
+      <DownloadButton className="bg-orange-600 text-xs hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-medium transition-all duration-200 cursor-pointer group" />
       {/* Contact Button */}
       <Button
         variant="outline"
@@ -44,5 +47,5 @@ export function ActionButtons() {
         </Link>
       </Button>
     </motion.div>
-  );
+  )
 }

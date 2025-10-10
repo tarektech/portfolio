@@ -63,7 +63,7 @@ export function TechStackSection() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-8"
         >
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">2+</div>
+            <div className="text-3xl font-bold text-white mb-2">1+</div>
             <div className="text-gray-400 text-sm">Years of Experience</div>
           </div>
           <div className="text-center">

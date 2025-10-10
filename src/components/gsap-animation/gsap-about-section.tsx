@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextShimmerWave } from '@/components/ui/text-shimmer-wave'
 import { TiltEffect, RevealAnimation } from './gsap-advanced-effects'
+import { DownloadButton } from '../ui/downloadButton'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -53,7 +54,7 @@ export function GSAPAboutSection() {
       gsap.set(backgroundRef.current, { scaleX: 0, transformOrigin: 'left' })
       tl.to(backgroundRef.current, {
         scaleX: 1,
-        duration: 1.5,
+        duration: 1,
         ease: 'power2.out',
       })
     }
@@ -145,19 +146,11 @@ export function GSAPAboutSection() {
     }
   }, [])
 
-  function handleDownloadResume() {
-    const resumeUrl = '/resume/Tarek-Alzein.pdf'
-    const link = document.createElement('a')
-    link.target = '_target'
-    link.href = resumeUrl
-    link.click()
-  }
-
   const handleClick = () => {
     const element = document.querySelector('#portfolio-showcase')
     if (element) {
       gsap.to(window, {
-        duration: 1.5,
+        duration: 1,
         scrollTo: { y: element, offsetY: 100 },
         ease: 'power2.inOut',
       })
@@ -205,22 +198,13 @@ export function GSAPAboutSection() {
                 <span className="text-orange-400 font-semibold">
                   Full Stack Developer
                 </span>{' '}
-                with a love for creating beautiful, functional, and
-                user-friendly digital experiences. With expertise in modern web
-                technologies, I bring ideas to life through clean code and
-                innovative solutions.
-              </p>
-            </div>
-          </TiltEffect>
-
-          <TiltEffect tiltAngle={3} scale={1.01}>
-            <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6">
-              <p className="text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                My journey in web development is driven by curiosity and a
-                commitment to continuous learning. I specialize in React,
-                Next.js, TypeScript, and modern backend technologies, always
-                staying up-to-date with the latest industry trends and best
-                practices.
+                skilled in React, Next.js, and TypeScript, focused on building
+                user-centric web applications and efficient APIs. Experienced in
+                delivering end-to-end solutions for B2B and B2C projects within
+                Agile teams, I bring ideas to life through clean code principles
+                and innovative solutions. I aim to contribute to sustainable
+                projects while staying up-to-date with the latest industry
+                trends and best practices.
               </p>
             </div>
           </TiltEffect>
@@ -234,15 +218,7 @@ export function GSAPAboutSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <TiltEffect tiltAngle={8} scale={1.05}>
-            <button
-              onClick={handleDownloadResume}
-              className="group relative px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 cursor-pointer"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                📄 Download Resume
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-            </button>
+            <DownloadButton />
           </TiltEffect>
 
           <TiltEffect tiltAngle={8} scale={1.05}>
