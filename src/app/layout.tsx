@@ -1,18 +1,18 @@
-import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import './globals.css';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
+import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
-});
+})
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-});
+})
 
 export const metadata: Metadata = {
   title: 'Tarek AlZein | Full Stack Web Developer',
@@ -55,22 +55,12 @@ export const metadata: Metadata = {
     siteName: 'Tarek AlZein Portfolio',
     type: 'website',
     locale: 'en_US',
-    images: [
-      {
-        url: '/favicon.ico',
-        width: 1200,
-        height: 630,
-        alt: 'Tarek AlZein - Web Developer Portfolio',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tarek AlZein | Full Stack Web Developer',
     description:
       'Personal portfolio of Tarek AlZein, a full stack web developer specializing in React, Next.js, Node.js, and modern web development practices.',
-    images: ['/favicon.ico'],
     creator: '@tarektech',
   },
   robots: {
@@ -84,14 +74,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.ico', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [{ url: '/favicon.ico', sizes: '180x180', type: 'image/png' }],
-  },
   manifest: '/manifest.json',
   category: 'technology',
   classification: 'Portfolio',
@@ -101,12 +83,12 @@ export const metadata: Metadata = {
     distribution: 'global',
     rating: 'general',
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className="dark">
@@ -142,6 +124,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="apple-mobile-web-app-title" content="tarekzein" />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
@@ -159,7 +142,6 @@ export default function RootLayout({
               description:
                 'Passionate and detail-oriented self-taught web developer with a strong foundation in creating high-quality, user-friendly websites and applications.',
               url: 'https://tarekzein.com',
-              image: 'https://tarekzein.com/favicon.ico',
               email: 'tarekzein.dev@gmail.com',
               address: {
                 '@type': 'PostalAddress',
@@ -224,5 +206,5 @@ export default function RootLayout({
         <SpeedInsights />
       </body>
     </html>
-  );
+  )
 }

@@ -1,59 +1,59 @@
 import type { MetadataRoute } from 'next'
 
-const SITE_URL = 'https://tarekalzein.com'
+const SITE_URL = 'https://tarekzein.com'
 
 export default function robots(): MetadataRoute.Robots {
-	return {
-		rules: [
-			{
-				userAgent: '*',
-				allow: '/',
-				disallow: [
-					'/api/',
-					'/admin/',
-					'/_next/',
-					'/private/',
-					'*.json$',
-					'/temp/',
-					'/cache/',
-				],
-			},
-			{
-				userAgent: 'GPTBot',
-				disallow: '/',
-			},
-			{
-				userAgent: 'ChatGPT-User',
-				disallow: '/',
-			},
-			{
-				userAgent: 'CCBot',
-				disallow: '/',
-			},
-			{
-				userAgent: 'anthropic-ai',
-				disallow: '/',
-			},
-			{
-				userAgent: 'Claude-Web',
-				disallow: '/',
-			},
-		],
-		sitemap: `${SITE_URL}/sitemap.xml`,
-		host: SITE_URL,
-	}
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/private/',
+          '*.json$',
+          '/temp/',
+          '/cache/',
+        ],
+      },
+      {
+        userAgent: 'GPTBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        disallow: '/',
+      },
+      {
+        userAgent: 'CCBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'anthropic-ai',
+        disallow: '/',
+      },
+      {
+        userAgent: 'Claude-Web',
+        disallow: '/',
+      },
+    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
+  }
 }
 
 // Additional robots.txt configuration for development
 export function generateRobotsTxt(isProduction: boolean): string {
-	if (!isProduction) {
-		return `User-agent: *
+  if (!isProduction) {
+    return `User-agent: *
 Disallow: /
 
 # Development environment - disallow all crawling`
-	}
+  }
 
-	return `User-agent: *
+  return `User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
